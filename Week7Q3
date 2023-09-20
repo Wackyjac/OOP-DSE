@@ -1,0 +1,52 @@
+import java.util.Scanner;
+import java.util.Arrays;
+class HelloWorld {
+    static boolean IsPali(String a){
+        int i;
+        int n=a.length();
+        for(i=0;i<a.length()/2;i++){
+            if(a.charAt(i)!=a.charAt(n-i-1))
+                return false;
+        }
+        return true;
+    }
+    static void abc(String a){
+        char sr[]=a.toCharArray();
+        Arrays.sort(sr);
+        System.out.print(sr);
+    }
+    static StringBuilder rev(String a){
+        StringBuilder sb= new StringBuilder();
+        sb=sb.append(a);
+        return sb.reverse();
+    }
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        String a=sc.next();
+        System.out.print("\n 1. for palindrome \n 2.Alphabetisize \n 3.reverse \n 4. Concat \n 5. exit \n");
+        int x=sc.nextInt();
+        StringBuilder rsb=new StringBuilder();
+        while(x!=5){
+            switch(x){
+                case 1:
+                    System.out.print(IsPali(a)+"\n");
+                    break;
+                case 2:
+                    abc(a);
+                    break;
+                case 3:
+                    rsb=rev(a);
+                    System.out.print(rsb+"\n");
+                    break;
+                case 4:
+                    System.out.print(a+rsb+"\n");
+                    break;
+                case 5:
+                    x=5;
+                    break;
+            }
+            System.out.print("\n 1. for palindrome \n 2.Alphabetisize \n 3.reverse \n 4. Concat \n 5. exit \n");
+            x=sc.nextInt();
+        }
+    }
+}
